@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class DataLoader {
-    private ProductDao productDao;
+    private final ProductDao productDao;
 
     @Autowired
     public DataLoader(ProductDao productDao) {

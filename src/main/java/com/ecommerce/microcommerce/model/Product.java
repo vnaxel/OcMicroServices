@@ -1,20 +1,24 @@
 package com.ecommerce.microcommerce.model;
 
-import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import io.swagger.annotations.ApiModelProperty;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.Size;
 
 //@JsonFilter("monFiltreDynamique")
 @Entity
 public class Product {
     @Id
     @GeneratedValue
+    @ApiModelProperty(hidden = true)
     private Long id;
+    @Size(min = 3, max = 25)
     private String nom;
+    @Min(1)
     private int prix;
     private int prixAchat;
 
